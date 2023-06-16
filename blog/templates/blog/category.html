@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+
+
+{% block content %}
+    <div class="card-container">
+        {% get_current_language as language_code %}
+        {% for post in posts %}
+            <div class="card" style="width: 18rem;">
+                {% if post.image %}
+                    <figure class="image">
+                        <img src="{{post.image.url}}" alt="">
+                    </figure>
+                {% endif %}
+
+                {% if language_code == 'ar' %}
+                    <div class="card-body">
+                        <h5 class="card-title"> {{post.title_ar}} </h5>
+                        <h6 class="card-subtitle mb-2 text-muted"> {{post.created_at | timesince }} </h6>
+                        <p class="card-text"> {{post.intro_ar}} </p>
+                        <p class="has-text-right"> {{post.category.title_ar}} </p>
+                        <a href="{% url 'detail:post_detail' post.category.slug post.slug %}" class="card-link"> {% trans "More" %} </a>
+                    </div>
+
+                {% else %}
+                    <div class="card-body">
+                        <h5 class="card-title"> {{post.title}} </h5>
+                        <h6 class="card-subtitle mb-2 text-muted"> {{post.created_at | timesince }} </h6>
+                        <p class="card-text"> {{post.intro}} </p>
+                        <p class="has-text-right"> {{post.category}} </p>
+                        category
+                        <a href="{% url 'detail:post_detail' post.category.slug post.slug %}" class="card-link"> {% trans "More" %} </a>
+                    </div>
+                {% endif %}
+                
+            </div>
+            {% empty %}
+                <div class="container">
+                    <p class="empty">{% trans "There Is No content In This Category..." %}</p>
+                </div>
+        {% endfor %}
+        <br>
+    </div>
+{% endblock content %}

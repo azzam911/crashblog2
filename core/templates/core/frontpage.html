@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block content %}
+    <div class="card-container">
+        {% for post in posts %}
+        
+            <div class="card" style="width: 18rem;">
+                {% get_current_language as language_code %}
+                {% if post.image %}
+                    <figure class="image">
+                        <img src="{{post.image.url}}" alt="">
+                    </figure>
+                {% endif %}
+                {% if language_code == 'ar' %}
+                    <div class="card-body">
+                        <h5 class="card-title"> {{post.title_ar}} </h5>
+                        <h6 class="card-subtitle mb-2 text-muted"> {{post.created_at | timesince }} </h6>
+                        <p class="card-text"> {{post.intro_ar}} </p>
+                        <p class="has-text-right"> <a href="{% url 'detail:category_detail' post.category.slug %}">{{post.category}}</a> </p>
+                        <a href="{% url 'detail:post_detail' post.category.slug post.slug %}" class="card-link"> {% trans "More" %} </a>
+                    </div>
+                    {% else %}
+                    <div class="card-body">
+                        <h5 class="card-title"> {{post.title}} </h5>
+                        <h6 class="card-subtitle mb-2 text-muted"> {{post.created_at | timesince }} </h6>
+                        <p class="card-text"> {{post.intro}} </p>
+                        <p class="has-text-right"> <a href="{% url 'detail:category_detail' post.category.slug %}">{{post.category}}</a> </p>
+                        <a href="{% url 'detail:post_detail' post.category.slug post.slug %}" class="card-link"> {% trans "More" %} </a>
+                    </div>
+                {% endif %}
+                
+                
+            </div>
+            
+            {% empty %}
+                <div>
+                    <h1 class="empty">{% trans "There Is No Posts" %}</h1>
+                </div>
+        {% endfor %}
+        <br>
+    </div>
+{% endblock content %}

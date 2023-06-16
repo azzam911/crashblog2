@@ -1,0 +1,23 @@
+.card-container {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    margin: 50px auto;
+    flex-wrap: wrap;
+
+}
+.container {
+    margin: 0 auto !important;
+}
+.comment {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 30px;
+}
+
+@media screen and (max-width : 1023) {
+    .navbar-brand {
+        width: 100% !important;
+    }
+}

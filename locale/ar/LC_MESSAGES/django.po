@@ -1,0 +1,75 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-06-16 10:15+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+
+#: .\blog\templates\blog\category.html:23
+#: .\blog\templates\blog\category.html:33 .\blog\templates\blog\search.html:39
+#: .\blog\templates\blog\search.html:47 .\core\templates\core\frontpage.html:22
+#: .\core\templates\core\frontpage.html:30
+msgid "More"
+msgstr "المزيد"
+
+#: .\blog\templates\blog\category.html:40
+msgid "There Is No content In This Category..."
+msgstr "لايوجد اي منشور في هذه الفئة"
+
+#: .\blog\templates\blog\detail.html:21 .\blog\templates\blog\detail.html:30
+msgid "Category"
+msgstr "الفئة"
+
+#: .\blog\templates\blog\search.html:11 .\blog\templates\blog\search.html:13
+#: .\blog\templates\blog\search.html:19
+#, fuzzy
+#| msgid "Search"
+msgid "search"
+msgstr "بحث"
+
+#: .\blog\templates\blog\search.html:54 .\core\templates\core\frontpage.html:39
+msgid "There Is No Posts"
+msgstr "لايوجد اي منشور"
+
+#: .\core\templates\core\about.html:10
+msgid "Name"
+msgstr "الاسم"
+
+#: .\core\templates\core\about.html:23
+msgid "Visit"
+msgstr "زيارة"
+
+#: .\core\templates\core\about.html:26
+msgid "Github Pages"
+msgstr "صفحات Github"
+
+#: .\templates\navbar.html:7 .\templates\navbar.html:38
+#: .\templates\navbar.html:99
+msgid "Home"
+msgstr "الرئيسية"
+
+#: .\templates\navbar.html:31 .\templates\navbar.html:92
+msgid "Search"
+msgstr "بحث"
+
+#: .\templates\navbar.html:39 .\templates\navbar.html:100
+msgid "About"
+msgstr "عني"
+
+#: .\templates\navbar.html:40 .\templates\navbar.html:101
+msgid "Portfolio"
+msgstr "صفحتي الشخصية"

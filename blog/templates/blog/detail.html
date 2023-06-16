@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block content %}
+    <article class="detail">
+        {% get_current_language as language_code %}
+        <time class="time">{{post.created_at | timesince}}</time>
+        <div class="card">
+            {% if post.image %}
+                <figure class="image mb-6">
+                    <img src="{{post.image.url}}" alt="">
+                </figure>
+            {% endif %}
+            {% if language_code == 'ar' %}
+            <h5 class="card-header">{{post.title_ar}}</h5>
+            <p class="intro">{{post.intro_ar}}</p>
+            <div class="card-body">
+                <div class="category">
+                    
+                    <span>{% trans "Category" %}:</span><a href="{% url 'detail:category_detail' post.category.slug %}" class="btn">{{post.category.title_ar}}</a>
+                </div>
+                <p class="card-text">{{post.body_ar}}</p>
+            </div>
+            {% else %}
+            <h5 class="card-header">{{post.title}}</h5>
+            <p class="intro">{{post.intro}}</p>
+            <div class="card-body">
+                <div class="category">
+                    <span>{% trans "Category" %}:</span><a href="{% url 'detail:category_detail' post.category.slug %}" class="btn">{{post.category}}</a>
+                </div>
+                <p class="card-text">{{post.body}}</p>
+            </div>
+            {% endif %}
+            
+        </div>
+    </article>
+{% endblock content %}

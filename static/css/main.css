@@ -1,0 +1,146 @@
+.card-header {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.intro {
+    font-size: 20px;
+    margin: 10px;
+}
+
+.category a {
+    color: green;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.card-text {
+    line-height: 1.8;
+    font-size: 18px;
+}
+
+.time {
+    font-size: 18px;
+}
+
+.mobile-nav {
+    background-color: #eee;
+    display: none;
+    position: fixed;
+    right: -400px;
+    top: 70px;
+    padding: 20px;
+    min-height: 40vh;
+    transition: .8s;
+    border-radius: 10px;
+}
+.active {
+    right: 40px;
+}
+.mobile-nav .nav-search {
+    flex-direction: column;
+}
+
+.mobile-nav .buttons {
+    flex-direction: column;
+}
+
+.mobile-nav .buttons a{
+    cursor: pointer;
+    padding: 10px 60px;
+    background-color: #fff;
+    border-radius: 10px;
+    width: 100%;
+    text-align: center;
+}
+
+@media screen and (max-width: 1023px) {
+    .mobile-nav {
+        display: flex;
+    }
+}
+
+.about {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin: 40px 0;
+    justify-content: center;
+}
+
+.item {
+    width: 200px;
+    min-height: 200px;
+    background-color: #eee;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.about .card-body {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-evenly;
+    gap: 15px;
+}
+
+
+.language {
+    border: none;
+    background-color: transparent;
+}
+
+
+.larg-screen-language {
+    margin-right: 20px;
+}
+
+
+
+.nav-search  input{
+    text-align: center;
+}
+
+.search {
+    text-align: center;
+    margin: 50px auto;
+}
+.search h1 {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.social-media ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.social-media ul li {
+    font-size: 25px;
+}
+
+.footer {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    height: 60px;   /* Height of the footer */
+}
+
+.footer p {
+    font-size: 18px;
+}
+
+.empty-category {
+    text-align: center;
+    font-size: 21px;
+}
+
+
+@media screen and (max-width: 500px) {
+    .about .item {
+        width: 170px;
+    }
+}

@@ -1,0 +1,106 @@
+{% load static %}
+{% load i18n %}
+<nav class="navbar" role="navigation" aria-label="main navigation">
+    
+    <div class="navbar-brand nav-mobile">
+      <a class="navbar-item" href="/">
+        <strong>{% trans "Home" %}</strong>
+      </a>
+  
+      <a role="button" v-on:click="isActive = !isActive" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+        <span aria-hidden="false"></span>
+        <span aria-hidden="false"></span>
+        <span aria-hidden="false"></span>
+      </a>
+    </div>
+    <div class="mobile-nav" v-bind:class="{active : isActive}">
+      <div class="navbar-end">
+        <form action="{% url 'detail:search' %}" method="GET" class="nav-search">
+          <input type="search" name="query" class="input" 
+            {% if query %}
+              placeholder="{{query}}"
+
+            {% else %}
+              {% if language_code == 'ar' %}
+                placeholder="ابحث عن منشور"
+              {% else %}
+                placeholder="Find a Post"
+              {% endif %}
+            {% endif %}
+          >
+          <input type="submit" class="btn btn-primary" value="{% trans "Search" %}">
+        </form>
+          
+          <div class="navbar-item">
+              
+          <div class="buttons">
+              
+              <a href="/" class="navbar-item">{% trans "Home" %}</a>
+              <a href="{% url 'home:about' %}" class="navbar-item">{% trans "About" %}</a>
+              <a href="https://azzam-alkhaldi.vercel.app" target="_blank" class="navbar-item">{% trans "Portfolio" %}</a>
+
+              <form action="{% url 'set_language' %}" method="POST">
+                {% csrf_token %}
+                {% get_current_language as language_code %}
+                <input type="hidden" name="next" value="{{ request.get_full_path | slice:'3:' }}">
+                {% if language_code == 'ar' %}
+                  <button type="submit" name="language" value="en" class="language">
+                    English
+                  </button>
+                  {% else %}
+                  <button type="submit" name="language" value="ar" class="language">
+                  العربية
+                  </button>
+                {% endif %}
+              </form>
+          </div>
+          </div>
+      </div>
+    </div>
+
+        <div id="navbarBasicExample" class="navbar-menu">
+    
+        <div class="navbar-end">
+          <form action="{% url 'set_language' %}" method="POST" class="larg-screen-language">
+            {% csrf_token %}
+            {% get_current_language as language_code %}
+            <input type="hidden" name="next" value="{{ request.get_full_path | slice:'3:' }}">
+            {% if language_code == 'ar' %}
+              <button type="submit" name="language" value="en" class="language">
+                English
+              </button>
+              {% else %}
+              <button type="submit" name="language" value="ar" class="language">
+                العربية
+              </button>
+            {% endif %}
+          </form>
+
+          <form action="{% url 'detail:search' %}" method="GET" class="nav-search">
+            <input type="search" name="query" class="input" 
+            {% if query %}
+                placeholder="{{query}}"
+
+            {% else %}
+                {% if language_code == 'ar' %}
+                  placeholder="ابحث عن منشور"
+                {% else %}
+                  placeholder="Find a Post"
+                {% endif %}
+            {% endif %}
+            >
+            <input type="submit" class="btn btn-primary" value="{% trans "Search" %}">
+          </form>
+            
+            <div class="navbar-item">
+                
+            <div class="buttons">
+                
+                <a href="/" class="navbar-item">{% trans "Home" %}</a>
+                <a href="{% url 'home:about' %}" class="navbar-item">{% trans "About" %}</a>
+                <a href="https://azzam-alkhaldi.vercel.app" target="_blank" class="navbar-item">{% trans "Portfolio" %}</a>
+            </div>
+            </div>
+        </div>
+      </div>
+</nav>

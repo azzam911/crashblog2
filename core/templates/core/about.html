@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block content %}
+    <div class="about">
+
+        {% for repo in repos %}
+        <div class="item">
+                <div class="card-body">
+                <h5 class="card-title">{% trans "Name" %}: {{repo.name}}</h5>
+                {% if repo.language %}
+                    <p>Using: {{repo.language}}</p>
+                {% endif %}
+
+                
+                    {% if repo.name == 'Anime-Search' %}
+                        <a href="https://anime-search-pro.vercel.app" target="_blank" class="btn btn-primary">{{repo.name}}</a>
+                    {% endif %}
+                    {% if repo.name == 'FyloWebsite' %}
+                        <a href="https://fylo-testwebsite.vercel.app" target="_blank" class="btn btn-primary">{{repo.name}}</a>
+                    {% endif %}
+                
+                    <a href="{{repo.html_url}}" target="_blank" class="btn btn-primary">{% trans "Visit" %}</a>
+                    {% if repo.name != 'Anime-Search' %}
+                        {% if repo.name != 'FyloWebsite' %}
+                        <a class="btn btn-primary" target="_blank" href="https://azzam911.github.io/{{repo.name}}">{% trans "Github Pages" %}</a>
+                        {% endif %}
+                    {% endif %}
+
+                    <p>{{repo.created_at}}</p>
+                </div>
+        </div>
+        {% endfor %}
+
+    </div>
+{% endblock content %}
